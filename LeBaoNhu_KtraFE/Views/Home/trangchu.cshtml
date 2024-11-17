@@ -1,0 +1,734 @@
+﻿@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        font-size: 14px;
+    }
+
+    .chatluong {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-top: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
+        padding: 10px; 
+        gap: 20px; 
+    }
+
+        .chatluong span {
+            display: flex;
+            align-items: center;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+    .hangthat, .hoantien {
+        color: #27272A;
+        padding-left: 5px; 
+        display: flex;
+        align-items: center;
+        border-right: 1px solid lightgrey; 
+        padding-right: 5px; 
+    }
+
+        .hangthat img, .hoantien img {
+            width: 20px; 
+            margin-right: 5px; 
+        }
+
+    .commit {
+        color: #003EA1;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    .doitra, .giaonhanh {
+        color: #27272A;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        border-right: 1px solid lightgrey; 
+        padding-right: 5px;
+    }
+
+        .doitra img, .giaonhanh img {
+            width: 20px; 
+            margin-right: 5px; 
+        }
+
+    .giasieure {
+        color: #27272A;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        border-right: 1px solid lightgrey; 
+        padding-right: 5px; 
+    }
+    .freeshipmoidon {
+        color: #27272A;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        padding-right: 5px; 
+    }
+
+        .giasieure img, .freeshipmoidon img {
+            width: 20px; 
+            margin-right: 5px;
+        }
+
+        /* PHẦN ĐỆM CỦA CONTAINER */
+    .top-slider {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .top1 {
+        color: dimgrey;
+    }
+
+        .top1 img {
+            width: 10px;
+        }
+
+    .top2 {
+        color: dimgrey;
+    }
+    
+    /* Container chính */
+    .container {
+        display: flex;
+        max-width: 1400px;
+        padding: 20px;
+        background-color: whitesmoke;
+    }
+
+    /* Phần trái (hình ảnh và thông tin sản phẩm) */
+    .left-section {
+        flex: 50%;
+        border: 1px solid whitesmoke;
+        margin: 20px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .product-image1 {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .product-image1 img {
+            width: 250px;
+            height: 300px;
+            border-radius: 5px;
+        }
+
+    .product-images2 {
+        display: flex;
+        margin-top: 10px;
+    }
+
+        .product-images2 img {
+            width: 80px;
+            margin-right: 10px;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+    .befenit-notice {
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+        text-align: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+        .befenit-notice .change {
+            color: darkgray;
+            
+        }
+    .befenit-notice img{
+        width: 20px;
+    }
+    .befenit-notice .change span {
+        color: black;
+    }
+
+    /* PHẦN GIỮA */
+    .middle-section {
+        flex: 100%;
+        margin: 10px;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        padding: 20px;
+    }
+    /* KHUNG 2 PHẦN ĐẦU */
+    .product-title {
+        border: 1px solid white;
+        border-radius: 10px;
+        padding: 20px;
+        background-color:white;
+    }
+    .brands {
+        font-size: 14px;
+    }
+        .brands img {
+            width: 100px;
+        }
+
+    .change-color {
+        color: blue;
+    }
+
+    .product-title h1 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .rating {
+        font-size: 14px;
+    }
+        .rating .change {
+            color: grey;
+        }
+    .star {
+        color: gold;
+    }
+
+    .fromwhere {
+        color: grey;
+        font-size: 14px;
+    }
+
+    .price {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .flavor {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .vani {
+        border: 2px solid #0B74E5;
+        border-radius: 10px;
+        font-weight: normal;
+        font-size: 14px;
+        padding: 5px;
+        text-align: center;
+        position: relative;
+    }
+        .vani img {
+            width: 8px;
+            margin-bottom: 8px;
+            text-align: right;
+            position: absolute;
+            left: 28px;
+            top: 15%;
+            transform: translateY(-50%);
+        }
+
+    /* Phần giữa (thông tin sản phẩm và vận chuyển) */
+    .shipping-info {
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+        .shipping-info span {
+            font-weight: bold;
+        }
+
+    .shipping-info h2 {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    /* KHUNG 2 PHẦN GIỮA */
+    .fast-delivery {
+        font-family: 16px;
+    }
+        .fast-delivery span {
+            font-weight: bold;
+        }
+    .now {
+        border-top: 1px solid #ddd;
+    }
+        .now img {
+            width: 40px;
+            margin-top: 20px;
+        }
+    .info {
+        font-weight: normal;
+    }
+
+    .freeship {
+        color: limegreen;
+    }
+
+    .ship-cod {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    .slow-delivery {
+        font-family: 16px;
+    }
+        .slow-delivery span {
+            font-weight: bold;
+        }
+    .giaosangmai{
+        border-top: 1px solid #ddd;
+    }
+        .giaosangmai img {
+            width: 40px;
+            margin-top: 20px;
+        }
+
+    .xefreeship {
+        border-top: 1px solid #ddd;
+    }
+        .xefreeship img {
+            width: 20px;
+            margin-top: 20px;
+        }
+
+    .thongtin img{
+        width: 10px;
+    }
+
+    /* KHUNG 2 PHẦN CUỐI*/
+    .additional-services {
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+        .additional-services h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .additional-services span {
+            text-align:left;
+            font-family: 16px;
+            font-weight: bold;
+            justify-content: space-between;
+        }
+
+    .tikicard {
+        text-align: left;
+    }
+        .tikicard img {
+            width: 45px;
+            margin-top: 10px;
+        }
+        .tikicard span {
+            margin-top: 20px;
+        }
+    .paylater {
+        border-top: 1px solid #ddd;
+    }
+        .paylater img {
+            width: 45px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+        .paylater span {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    /* Phần phải (giỏ hàng và mua sản phẩm) */
+    .right-section {
+        flex: 50%;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .right-section h3 {
+        font-size: 18px;
+    }
+
+    .buy-box img {
+        width: 300px;
+        padding: 10px;
+    }
+
+    .trading {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .official img {
+        width: 50px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .danhgia {
+        border-left: 1px solid lightgrey;
+        font-size: 14px;
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    .change {
+        color: grey;
+        margin-bottom: 10px;
+    }
+
+    .chat img {
+        width: 20px;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .suabot {
+        margin-bottom: 20px;
+        border-top: 2px solid lightgrey;
+        padding-left: 5px; 
+        display: flex;
+        align-items: center;
+        padding-right: 5px;
+    }
+    .suabot span{
+        text-align: center;
+        justify-content: space-between;
+    }
+        .suabot img {
+            width: 35px;
+            margin-right: 5px;
+        }
+    .buy-box {
+        padding: 15px;
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid white;
+    }
+        .buy-box h2 {
+            font-weight: bold;
+        }
+
+    label {
+        font-weight: bold;
+    }
+    .quantity {
+        margin-top: 10px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+        .quantity button {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: dimgrey;
+            cursor: pointer;
+            outline: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .quantity input {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            outline: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .quantity button:hover {
+                background-color: #f0f0f0;
+            }
+
+        .quantity input {
+            width: 60px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            pointer-events: none;
+        }
+
+    .price {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .disabled {
+        background-color: #f0f0f0;
+        cursor: not-allowed;
+    }
+
+        .buy-box .button1 {
+            margin-top: 15px;
+        }
+
+            .buy-box .button1 button {
+                width: 100%;
+                padding: 10px;
+                font-size: 18px;
+                background-color: red;
+                color: white;
+                border: none;
+                cursor: pointer;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+
+                .buy-box .button1 button:hover {
+                    background-color: darkred;
+                }
+        .buy-box .button2 {
+            border: 2px blue;
+        }
+            .buy-box .button2 button {
+                width: 100%;
+                padding: 10px;
+                font-size: 18px;
+                background-color: white;
+                color: blue;
+                border: 1px solid blue;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+                .buy-box .button2 button:hover {
+                    background-color: blue;
+                    color: white;
+                }
+    .ads{
+        margin: 20px;
+    }
+        .ads img{
+            border-radius: 5px;
+            width: 300px;
+        }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Tiki.vn</title>
+    <script src="Quantity.js"></script>
+    <script language="Javascript">
+        const pricePerItem = 1034550;
+
+        // Hàm cập nhật tổng giá trị
+        function updateTotalPrice(quantity) {
+            const totalPrice = pricePerItem * quantity;
+            document.getElementById('totalPrice').textContent = totalPrice.toLocaleString('vi-VN') + '₫';
+        }
+
+        // Hàm xử lý khi bấm nút "+"
+        function increaseQuantity() {
+            let currentQuantity = parseInt(document.getElementById('quantity').value);
+            currentQuantity++;
+            document.getElementById('quantity').value = currentQuantity;
+            updateTotalPrice(currentQuantity);
+            // Bỏ disable nút trừ khi số lượng > 1
+            document.getElementById('minusBtn').classList.remove('disabled');
+        }
+
+        // Hàm xử lý khi bấm nút "-"
+        function decreaseQuantity() {
+            let currentQuantity = parseInt(document.getElementById('quantity').value);
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                document.getElementById('quantity').value = currentQuantity;
+                updateTotalPrice(currentQuantity);
+            }
+            // Khi số lượng là 1, disable nút trừ
+            if (currentQuantity === 1) {
+                document.getElementById('minusBtn').classList.add('disabled');
+            }
+        }
+
+        // Thêm sự kiện khi trang load để kiểm tra nút trừ
+        window.onload = function () {
+            let currentQuantity = parseInt(document.getElementById('quantity').value);
+            if (currentQuantity === 1) {
+                document.getElementById('minusBtn').classList.add('disabled');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="chatluong">
+        <span class="commit">Cam kết</span>
+        <span class="hangthat"><img src="~/Content/image/tick.png" /> 100% hàng thật</span>
+        <span class="hoantien"><img src="~/Content/image/hoantien.png" /> Hoàn 200% nếu hàng giả</span>
+        <span class="doitra"><img src="~/Content/image/30ngaydoitra.png" /> 30 ngày đổi trả</span>
+        <span class="giaonhanh"><img src="~/Content/image/giaonhanh2h.png" /> Giao nhanh 2h</span>
+        <span class="giasieure"><img src="~/Content/image/giasieure.png" /> Giá siêu rẻ</span>
+        <span class="freeshipmoidon"><img src="~/Content/image/freeshipmoidon.png" /> Freeship mọi đơn</span>
+    </header>
+    <div class="top-slider">
+        <span class="top1">
+            Trang chủ
+            <img src="~/Content/image/iconnext.jpg" />
+            Đồ chơi - Mẹ & Bé
+            <img src="~/Content/image/iconnext.jpg" />
+            Dinh dưỡng cho người lớn
+            <img src="~/Content/image/iconnext.jpg" />
+            <span class="top2">Lon Sữa Glucerna 800g/lon - Tặng 2 gói dùng thử</span>
+        </span>
+    </div>
+    <div class="container">
+        <!-- Phần trái -->
+        <div class="left-section">
+            <!--Phần giữa khung 1 chèn hình ảnh-->
+            <div class="product-image1">
+                <img src="~/Content/image/suabot.jpg" alt="Sản phẩm chính" />
+            </div>
+            <div class="product-images2">
+                <img src="~/Content/image/suabot.jpg" alt="Ảnh 1" />
+                <img src="~/Content/image/suahinh2.jpg" alt="Ảnh 2" />
+                <img src="~/Content/image/suahinh2.jpg" alt="Ảnh 3" />
+                <img src="~/Content/image/suabot.jpg" alt="Ảnh 4" />
+            </div>
+            <div class="befenit-notice">
+                <img src="~/Content/image/icon.png" />
+                <span class="change">Xem thêm <span> Ưu điểm & lưu ý của sản phẩm &nbsp;&nbsp;&nbsp; ></span></span>
+            </div>
+        </div>
+        <!--Phần giữa-->
+        <div class="middle-section">
+            <div class="product-title">
+                <!--THÔNG TIN SẢN PHẨM-->
+                <div class="brands">
+                    <img src="~/Content/image/topdeal.png" />
+                    <img src="~/Content/image/doitra.png" />
+                    <img src="~/Content/image/chinhhang.png" />
+                    <span>Thương hiệu:</span>
+                    <span class="change-color">Glucerna</span>
+                </div>
+                <h1>Lon Sữa Glucerna 800g/lon - Tặng 2 gói dùng thử</h1>
+                <div class="rating">
+                    <span>5.0</span><span class="star"> ★★★★★</span>
+                    <span class="change"> (11) | Đã bán 436</span>
+                    <p class="fromwhere">Made in Spain</p>
+                    <p class="price">1.034.550đ</p>
+                </div>
+                <span class="flavor">Hương vị</span>
+                <br />
+                <br />
+                <span class="vani">
+                    Vani
+                    <img src="~/Content/image/la.png" />
+                </span>
+            </div>
+
+            <!--PHẦN THÔNG TIN VẬN CHUYỂN-->
+            <div class="shipping-info">
+                <h2>Thông tin vận chuyển</h2>
+                <p>Giao đến Q1, P.Bến Nghé, Hồ Chí Minh<span class="change-color" style="float:right">Đổi</span></p>
+                <div class="fast-delivery">
+                    <div class="now">
+                        <img src="~/Content/image/now.png" />
+                        <span>Giao siêu tốc 2h</span>
+                    </div>
+                    <p>
+                        Trước 11h hôm nay:
+                        <span class="freeship">Miễn phí</span>
+                        <span class="ship-cod">25.000 đ</span>
+                    </p>
+                </div>
+                <div class="slow-delivery">
+                    <div class="giaosangmai">
+                        <img src="~/Content/image/giaosangmai.png" />
+                        <span>Giao đúng sáng mai</span>
+                    </div>
+                    <p>
+                        8-12h, 01/10:
+                        <span class="freeship">Miễn phí</span>
+                        <span class="ship-cod">19.600 đ</span>
+                    </p>
+                </div>
+                <div class="xefreeship">
+                    <img src="~/Content/image/freeship.png" />
+                    <span>Freeship 10k đơn từ 45k, Freeship 25k đơn từ 100k</span>
+                    <img src="~/Content/image/i.png" />
+                </div>
+            </div>
+
+            <!--DỊCH VỤ BỔ SUNG-->
+            <div class="additional-services">
+                <h2>Dịch vụ bổ sung</h2>
+                <div class="tikicard">
+                    <img src="~/Content/image/tikicard.png" />
+                    <span>Ưu đãi đến với 600k với thẻ TikiCard</span>
+                    <span class="change-color" style="float:right">Đăng ký</span>
+                </div>
+                <br />
+                <div class="paylater">
+                    <img src="~/Content/image/paylater.png" />
+                    <span>Mua trước trả sau</span>
+                    <span class="change-color" style="float:right">Đăng ký</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần phải -->
+        <div class="right-section">
+            <div class="buy-box">
+                <img src="~/Content/image/trading.png" />
+                <div class="suabot">
+                    <img src="~/Content/image/suabot.jpg" />
+                    <span>Vani</span>
+                </div>
+                <label for="quantity">Số Lượng</label>
+                <div class="quantity">
+                    <button id="minusBtn" onclick="decreaseQuantity()"> ─ </button>
+                    <input type="number" id="quantity" value="1" readonly>
+                    <button id="plusBtn" onclick="increaseQuantity()"> + </button>
+                </div>
+                <div class="price">
+                    Tạm tính:
+                    <br />
+                    <span id="totalPrice">1.034.550₫</span>
+                </div>
+                <div class="button1">
+                    <button>Mua ngay</button>
+                </div>
+                <div class="button2">
+                    <button>Thêm vào giỏ</button>
+                    <button>Mua trước trả sau</button>
+                </div>
+            </div>
+            <div class="ads">
+                <img src="~/Content/image/dienmay.png" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

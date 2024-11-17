@@ -1,0 +1,238 @@
+﻿
+<style type="text/css">
+    .top {
+        background-color: #EFFFF4;
+        color: #00AB56;
+        padding: 10px;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+    }
+
+        .top img {
+            width: 80px;
+        }
+    /* Header */
+    header {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+
+    .logo span {
+        color: #003EA1;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    logo img {
+        height: 20px;
+        width: 70px;
+        padding: 20px;
+    }
+
+    .middle-search {
+        color: dimgrey;
+        font-size: 14px;
+    }
+
+    .search {
+        border: 1px solid lightgrey;
+        border-radius: 10px;
+        display: flex;
+        align-items: center; /* Để căn giữa theo chiều dọc */
+        padding: 3px;  /*Tạo khoảng cách giữa nội dung và border*/ 
+    }
+        .search img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;  /*Khoảng cách giữa ảnh và input */
+        }
+
+        .search [type="text"] { /*Thanh tìm kiếm*/
+            width: 80%;
+            padding: 10px;
+            font-size: 14px;
+            margin-right: 35px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .search [type=button] {
+            width: 10%;
+            margin-left: 30px;
+            font-size: 14px;
+            border: 1px solid white;
+            border-left: 1px solid lightgrey;
+            background-color: white;
+            color: #0B74E5;
+            text-align: center;
+            padding: 5px;
+        }
+
+            .search [type=button]:hover {
+                background-color: #bee3f1;
+            }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+        nav ul li {
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+
+            nav ul li img {
+                width: 20px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: #808080;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+    .home button {
+        border: 1px solid white;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        background-color: white;
+        color: grey;
+        border-radius: 5px;
+    }
+
+        .home button:hover {
+            background-color: lightgrey;
+        }
+
+    .user button {
+        border: 1px solid white;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        background-color: white;
+        color: grey;
+        border-radius: 5px;
+    }
+
+        .user button:hover {
+            background-color: lightgrey;
+        }
+    .shopping-cart {
+        border-left: 1px solid lightgrey;
+    }
+
+        .shopping-cart button {
+            border: 1px solid white;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            background-color: white;
+            color: grey;
+            border-radius: 5px;
+        }
+
+            .shopping-cart button:hover {
+                background-color: #bee3f1;
+            }
+
+    .giaoden {
+        border: 1px solid white;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        background-color: white;
+        color: grey;
+        border-radius: 5px;
+    }
+
+        .giaoden span {
+            text-decoration: underline;
+            color: black;
+        }
+</style>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Tiki.vn</title>
+</head>
+<body>
+    <div id="container">
+        <div class="top" style="text-align:center;">
+            Freeship đơn từ 45k, giảm nhiều hàng cùng
+            <img src="~/Content/image/freeshipxtra.png" />
+        </div>
+        <header>
+            <div class="logo">
+                <img src="https://salt.tikicdn.com/ts/upload/0e/07/78/ee828743c9afa9792cf20d75995e134e.png" alt="Logo Tiki">
+                <br />
+                <span>Tốt & Nhanh</span>
+            </div>
+            <div class="middle-search">
+                <div class="search">
+                    <img src="~/Content/image/timkiem.png" />
+                    <from name="search">
+                        <input type="text" name="txtName" placeholder="Freeship đơn từ 45k" value=""
+                               maxlength="100" size="70" />
+                        <input type="button" name="btnSeach" value="Tìm kiếm "
+                               onclick="DisplayMsg(txtName.value);" />
+                    </from>
+                </div>
+                <br />
+                <span class="suggest-search">
+                    điện gia dụng &nbsp; xe cộ &nbsp; mẹ & bé &nbsp; khỏe đẹp &nbsp; nhà cửa &nbsp;
+                    sách &nbsp; thể thao &nbsp; ensure &nbsp; ensure gold &nbsp; ensure nước &nbsp; boost optimun
+                </span>
+            </div>
+            <div class="goctrai">
+                <nav>
+                    <ul>
+                        <li class="home">
+                            <a href="~/Views/Home/trangchu.cshtml"></a>
+                            <button><img src="~/Content/image/trangchu.png" />Trang chủ</button>
+                        </li>
+                        <li class="user">
+                            <a href="~/User/Register"></a>
+                            <button><img src="~/Content/image/taikhoan.png" />Tài khoản</button>
+                        </li>
+                        <li class="shopping-cart">
+                            <a href="~/Product/ShoppingCart"></a>
+                            <button><img src="~/Content/image/giohang.png" /></button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="giaoden">
+                            <img src="~/Content/image/giaoden.png" />Giao đến: &nbsp;
+                            <span>Q1, P.Bến Nghé, Hồ Chí Minh</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <section>
+        <div>
+            @RenderBody()
+        </div>
+    </section>
+
+    <footer>
+    </footer>
+</body>
+</html>
